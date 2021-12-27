@@ -1,2 +1,3 @@
 # comp
-Repository to learn competitive programming and to store some solutions challenges
+This repository documents the journey to learning competitive programming.
+Storing my submitted solutions.
