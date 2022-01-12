@@ -20,6 +20,12 @@ class Solution:
                 root.right = cur
         return root
 
+    def getHeight(self, root):
+        if root is None:
+            return -1  # not just condition for empty tree, also final condition for recursion
+        else:
+            return 1 + max(self.getHeight(root.left), self.getHeight(root.right))
+
     def levelOrder(self, root):
         Q = []
         if (root.data is not None):
@@ -34,8 +40,24 @@ class Solution:
             if current.right is not None:
                 Q.append(current.right)
             Q.pop(0)
-        print(answer)
+        return answer
         # Write your code here
+
+    def levelOrder2(self, root):
+        Q = []  # queue used for going thru
+        if (root.data is not None):
+            Q.append(root)  # forgot, else Q is still empty
+        answer = ""
+        while (Q):  # while its not empty
+            # answer stacks up with each iteration
+            current = Q[0]
+            answer = answer + str(current.data) + " "
+            if root.left is not None:
+                Q.append(current.left)
+            if root.right is not None:
+                Q.append(current.right)
+            Q.pop(0)  # take out first of queue
+        return answer
 
 
 T = int(input())
@@ -44,5 +66,7 @@ root = None
 for i in range(T):
     data = int(input())
     root = myTree.insert(root, data)
-myTree.levelOrder(root)
-print('datwaret')
+ordr = myTree.levelOrder(root)
+print(ordr, 'Geordnet nach Leveln')
+height = myTree.getHeight(root)
+print('Höhe des BinTree:', height)

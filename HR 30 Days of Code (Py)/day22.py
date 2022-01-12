@@ -42,6 +42,24 @@ class Solution:
         else:
             return 1 + max(self.getHeight(root.left), self.getHeight(root.right))
 
+    def levelOrder(self, root):
+        Q = []
+        if (root.data is not None):
+            Q.append(root)
+        answer = ""
+        # if the list has any elements in it, it will return true. Basically, while loop will end if list becomes empty.
+        while (Q):
+            current = Q[0]
+            answer = answer + str(current.data) + " "
+            if current.left is not None:
+                Q.append(current.left)
+            if current.right is not None:
+                Q.append(current.right)
+            Q.pop(0)
+        print(answer)
+
+        # Write your code here
+
 
 T = int(input())
 myTree = Solution()
