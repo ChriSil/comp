@@ -27,7 +27,7 @@ def bitwiseAnd(N, K):  # works but too slow, given nested loop
     return maxi
 
 
-def bitwiseAndf(n, k):  # fast solution, not fully comprehend yet
+def bitwiseAndf(n, k):  # fast solution, not fully comprehend yeth
     return(k-1 if ((k-1) | k) <= n else k-2)
 
     # Write your code here
